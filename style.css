@@ -758,6 +758,32 @@ button {
               box-shadow 0.35s ease;
 }
 
+.card-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 10px 8px 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 2;
+  pointer-events: none;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease;
+}
+
+.card-title-text {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
 /* Hover Details Peek Vibe */
 .card-hover-details {
   position: absolute;
@@ -791,6 +817,11 @@ button {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie-card:hover .card-title-overlay {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .movie-card:hover .card-hover-details {

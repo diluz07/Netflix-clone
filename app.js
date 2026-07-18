@@ -665,6 +665,9 @@ function createMovieCard(movie) {
   return `
     <div class="movie-card" data-movie-id="${movie.id}">
       <img src="${movie.backdrop}" alt="${movie.title}" class="card-thumbnail" loading="lazy">
+      <div class="card-title-overlay">
+        <span class="card-title-text">${movie.title}</span>
+      </div>
       <div class="card-hover-details">
         <div class="card-action-buttons">
           <div class="btn-group-left">
