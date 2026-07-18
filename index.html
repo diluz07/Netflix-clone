@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - Watch TV Shows Online, Watch Movies Online</title>
+  <!-- SEO Tags -->
+  <meta name="description" content="Watch Netflix movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more.">
+  <link rel="icon" type="image/x-icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1.3">
+</head>
+<body>
+
+  <!-- ============================================== -->
+  <!-- 1. LANDING & LOGIN PAGE STATE                   -->
+  <!-- ============================================== -->
+  <div id="landing-page" class="landing-container">
+    <div class="landing-overlay-gradient"></div>
+    <header class="landing-header">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" class="netflix-logo" alt="Netflix Logo">
+      </div>
+      <button class="primary-btn signin-btn" onclick="document.getElementById('login-modal').classList.add('active')">Sign In</button>
+    </header>
+
+    <main class="landing-hero">
+      <div class="landing-hero-content">
+        <h1>Unlimited movies, TV shows, and more</h1>
+        <p class="subtitle">Watch anywhere. Cancel anytime.</p>
+        <p class="prompt-text">Ready to watch? Enter your email to create or restart your membership.</p>
+        <div class="landing-email-form">
+          <input type="email" id="landing-email-input" placeholder="Email address" autocomplete="email" required>
+          <button class="primary-btn get-started-btn" id="get-started-btn">
+            <span>Get Started</span>
+            <svg viewBox="0 0 24 24" class="arrow-icon"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Login Form Popup Modal -->
+  <div id="login-modal" class="modal-overlay">
+    <div class="modal-overlay-bg" id="login-overlay"></div>
+    <div class="login-box">
+      <h2>Sign In</h2>
+      <form id="login-form">
+        <div class="form-input-container">
+          <input type="email" id="login-email" required placeholder="Email or mobile number">
+        </div>
+        <div class="form-input-container">
+          <input type="password" id="login-password" required placeholder="Password">
+        </div>
+        <button type="submit" class="primary-btn submit-login-btn" id="login-modal-submit">Sign In</button>
+        
+        <div class="login-help">
+          <div class="remember-me">
+            <input type="checkbox" id="remember" checked>
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="#" class="help-link">Need help?</a>
+        </div>
+      </form>
+      <div class="login-footer">
+        <p class="signup-text">New to Netflix? <a href="#" onclick="alert('Simply fill standard fields to mock signin.');">Sign up now</a>.</p>
+        <p class="terms-text">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more</a>.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- 2. BROWSE / MAIN APPLICATION STATE              -->
+  <!-- ============================================== -->
+  <div id="browse-page" class="browse-container" style="display: none;">
+    <!-- Main Floating Header Navigation -->
+    <header class="main-header" id="main-header">
+      <div class="header-left">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" class="netflix-logo" alt="Netflix Logo">
+        <nav class="nav-links">
+          <a href="#" class="active">Home</a>
+          <a href="#">TV Shows</a>
+          <a href="#">Movies</a>
+          <a href="#">New & Popular</a>
+          <a href="#mylist-section">My List</a>
+        </nav>
+      </div>
+      <div class="header-right">
+        <div class="search-bar-container">
+          <svg viewBox="0 0 24 24" class="search-icon"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="search-input" placeholder="Titles, people, genres...">
+        </div>
+        <div class="notification-icon-container">
+          <svg viewBox="0 0 24 24" class="bell-icon"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        </div>
+        <div class="profile-dropdown-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" class="avatar-img">
+          <div class="profile-dropdown-menu">
+            <a href="#">Manage Profiles</a>
+            <a href="#">Account Settings</a>
+            <a href="#">Help Center</a>
+            <hr>
+            <a href="#" id="signout-btn">Sign out of Netflix</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Search Section View (Active when search query exists) -->
+    <section id="search-section" class="search-view" style="display: none;">
+      <h2>Search Results</h2>
+      <div id="search-results-grid" class="results-grid">
+        <!-- Javascript renders search result cards here -->
+      </div>
+    </section>
+
+    <!-- Standard Browse View -->
+    <main id="browse-main" class="browse-content">
+      <!-- Big Hero Banner / Billboard -->
+      <section class="billboard" id="billboard-bg">
+        <div class="billboard-overlay"></div>
+        <div class="billboard-content-wrapper" id="billboard-content">
+          <div class="billboard-info">
+            <span class="original-badge" id="billboard-badge">
+              <svg viewBox="0 0 24 24" class="n-logo" fill="#E50914"><path d="M4 2v20l8-10 8 10V2H4z"/></svg>
+              SERIES
+            </span>
+            <h1 class="billboard-title" id="billboard-title">Stranger Things</h1>
+            <p class="billboard-synopsis" id="billboard-desc">When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.</p>
+            <div class="billboard-actions">
+              <button class="primary-btn play-btn" id="billboard-play-btn">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                <span>Play</span>
+              </button>
+              <button class="secondary-btn info-btn" id="billboard-info-btn">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2V7h-2v2z"/></svg>
+                <span>More Info</span>
+              </button>
+              <button class="secondary-btn add-list-btn" id="billboard-add-list-btn">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>My List</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Slideshow Indicator Dots -->
+        <div class="billboard-indicators" id="billboard-indicators"></div>
+      </section>
+
+      <!-- Horizontally Scrollable Movie Showcase Rows -->
+      <div class="movie-rows-container">
+        <!-- Row 1: Watchlist (Hidden if empty) -->
+        <section id="mylist-section" class="movie-row-section" style="display: none;">
+          <h2>My List</h2>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" aria-label="Scroll left">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div id="mylist-row" class="row-inner"></div>
+            <button class="slider-arrow right" aria-label="Scroll right">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- Row 2: Trending -->
+        <section class="movie-row-section">
+          <h2>Trending Now</h2>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" aria-label="Scroll left">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div id="trending-row" class="row-inner"></div>
+            <button class="slider-arrow right" aria-label="Scroll right">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- Row 3: Popular -->
+        <section class="movie-row-section">
+          <h2>Popular on Netflix</h2>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" aria-label="Scroll left">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div id="popular-row" class="row-inner"></div>
+            <button class="slider-arrow right" aria-label="Scroll right">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- Row 4: Action -->
+        <section class="movie-row-section">
+          <h2>Action & Thrillers</h2>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" aria-label="Scroll left">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div id="action-row" class="row-inner"></div>
+            <button class="slider-arrow right" aria-label="Scroll right">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- Row 5: Sci-Fi -->
+        <section class="movie-row-section">
+          <h2>Sci-Fi & Fantasy</h2>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" aria-label="Scroll left">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div id="scifi-row" class="row-inner"></div>
+            <button class="slider-arrow right" aria-label="Scroll right">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- Row 6: Comedy -->
+        <section class="movie-row-section">
+          <h2>Comedy Movies</h2>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" aria-label="Scroll left">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <div id="comedy-row" class="row-inner"></div>
+            <button class="slider-arrow right" aria-label="Scroll right">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- App Footer -->
+      <footer class="main-footer">
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#">Audio Description</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Media Center</a></li>
+          <li><a href="#">Investor Relations</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Legal Notices</a></li>
+          <li><a href="#">Cookie Preferences</a></li>
+          <li><a href="#">Corporate Information</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="footer-copyright">
+          <p class="service-code-btn">Service Code</p>
+          <p class="copy-text">© 1997-2026 Netflix, Inc.</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- 3. DETAIL VIEW MODAL                            -->
+  <!-- ============================================== -->
+  <div id="details-modal" class="detail-modal-overlay">
+    <div class="detail-modal-card">
+      <button class="circle-btn close-modal-btn" id="modal-close-btn" aria-label="Close Details">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      
+      <div class="modal-billboard" id="modal-billboard-bg">
+        <div class="modal-billboard-overlay"></div>
+        <div class="modal-billboard-actions">
+          <h2 class="modal-title" id="modal-title">Stranger Things</h2>
+          <div class="modal-action-row">
+            <button class="primary-btn play-btn" id="modal-play-btn">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+              <span>Play</span>
+            </button>
+            <button class="circle-btn list-btn" id="modal-list-btn" title="Add to List">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-details-grid">
+        <div class="modal-details-left">
+          <div class="modal-meta-info">
+            <span class="match-score" id="modal-match">98% Match</span>
+            <span class="year" id="modal-year">2026</span>
+            <span class="age-rating-badge" id="modal-rating">16+</span>
+            <span class="duration" id="modal-duration">4 Seasons</span>
+            <span class="quality-badge">HD</span>
+          </div>
+          <p class="modal-synopsis" id="modal-desc">
+            When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.
+          </p>
+        </div>
+        <div class="modal-details-right">
+          <div class="meta-list">
+            <span class="label">Cast:</span> <span id="modal-cast-list">Millie Bobby Brown, Winona Ryder, David Harbour</span>
+          </div>
+          <div class="meta-list">
+            <span class="label">Genres:</span> <span id="modal-genre-list">Sci-Fi Drama, Teen Drama</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Like This Recommendations Section -->
+      <section class="modal-recommendations">
+        <h3>More Like This</h3>
+        <div class="similar-grid" id="modal-similar-grid">
+          <!-- Dynamically populated recommended show cards -->
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- 4. CUSTOM FULLSCREEN VIDEO PLAYER              -->
+  <!-- ============================================== -->
+  <div id="custom-video-player" class="video-player-overlay">
+    <!-- Back Button -->
+    <button class="player-back-btn" id="player-back-btn" aria-label="Go Back">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      <span>Back to Browse</span>
+    </button>
+
+    <video id="player-video" playsinline></video>
+
+    <!-- Controls overlay hud -->
+    <div class="player-controls-overlay">
+      <div class="player-top-info">
+        <h2 id="player-movie-title">Stranger Things - Season 1</h2>
+      </div>
+
+      <div class="player-bottom-controls">
+        <!-- Progress bar scrub timeline slider container -->
+        <div class="player-progress-container">
+          <span id="player-time-elapsed" class="time-stamp">00:00</span>
+          <div class="timeline-slider-wrapper">
+            <input type="range" id="player-timeline" min="0" max="100" value="0" step="0.1">
+            <div class="slider-progress-fill" id="player-progress-fill"></div>
+          </div>
+          <span id="player-time-remaining" class="time-stamp">-00:00</span>
+        </div>
+
+        <!-- Buttons HUD -->
+        <div class="player-controls-buttons">
+          <div class="controls-left">
+            <!-- Play/Pause -->
+            <button class="player-icon-btn" id="player-play-pause-btn" aria-label="Play/Pause">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            </button>
+
+            <!-- Volume Container -->
+            <div class="volume-control-wrapper">
+              <button class="player-icon-btn" id="player-volume-btn" aria-label="Mute/Unmute">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+              </button>
+              <input type="range" id="player-volume-slider" min="0" max="1" step="0.05" value="1">
+            </div>
+          </div>
+
+          <div class="controls-right">
+            <!-- Playback Speed -->
+            <button class="speed-control-btn" id="player-speed-btn">1x</button>
+            <!-- Fullscreen -->
+            <button class="player-icon-btn" id="player-fullscreen-btn" aria-label="Fullscreen">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=1.4"></script>
+</body>
+</html>
